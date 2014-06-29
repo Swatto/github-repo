@@ -1,22 +1,20 @@
-# &lt;my-repo&gt;
+# &lt;github-card&gt;
 
-> A bare minimum custom element starter-kit using [Polymer](http://www.polymer-project.org/).
->
-> Looking for a working example? Check [hello-world-polymer](https://github.com/webcomponents/hello-world-polymer).
+*This project was made to test [Polymer](www.polymer-project.org) and web components.*
 
 ## Demo
 
-[Check it live!](http://my-user.github.io/my-repo)
+[Check it live!](http://swatto.github.io/github-repo)
 
 ## Install
 
 Install the component using [Bower](http://bower.io/):
 
 ```sh
-$ bower install my-repo --save
+$ bower install github-repo --save
 ```
 
-Or [download as ZIP](https://github.com/my-user/my-repo/archive/master.zip).
+Or [download as ZIP](https://github.com/swatto/github-repo/archive/master.zip).
 
 ## Usage
 
@@ -29,32 +27,14 @@ Or [download as ZIP](https://github.com/my-user/my-repo/archive/master.zip).
 2. Import Custom Element:
 
     ```html
-    <link rel="import" href="bower_components/my-repo/dist/my-element.html">
+    <link rel="import" href="bower_components/github-repo/dist/my-element.html">
     ```
 
 3. Start using it!
 
     ```html
-    <my-element></my-element>
+    <github-repo user="twbs" repo="bootstrap"></github-repo>
     ```
-
-## Options
-
-Attribute     | Options     | Default      | Description
----           | ---         | ---          | ---
-`foo`         | *string*    | `bar`        | Lorem ipsum dolor.
-
-## Methods
-
-Method        | Parameters   | Returns     | Description
----           | ---          | ---         | ---
-`unicorn()`   | None.        | Nothing.    | Magic stuff appears.
-
-## Events
-
-Event         | Description
----           | ---
-`onsomething` | Triggers when something happens.
 
 ## Development
 
@@ -97,10 +77,6 @@ In order to run it locally you'll need to fetch some dependencies and a basic se
 3. Commit your changes: `git commit -m 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
-
-## History
-
-For detailed changelog, check [Releases](https://github.com/my-user/my-repo/releases).
 
 ## License
 

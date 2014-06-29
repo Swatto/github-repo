@@ -2,18 +2,75 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>&lt;my-repo&gt;</title>
+    <title>&lt;Github-repo&gt;</title>
 
     <!-- Importing Web Component's Polyfill -->
     <script src="bower_components/platform/platform.js"></script>
 
-    <!-- Importing Custom Elements -->
-    <link rel="import" href="src/my-element.html">
+    <!-- Importing Github-repo -->
+    <link rel="import" href="src/github-repo.html">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+
+    <style>
+        body{
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            text-align: center;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            height: 100vh;
+        }
+        .content{
+            max-width: 500px;
+            margin: auto;
+        }
+        h1{
+            text-align: center;
+            font-weight: 500;
+            font-size: 3em;
+            margin-top: 0;
+            color: #303030;
+        }
+        small{
+            display: block;
+            font-weight: 300;
+        }
+        github-repo{
+            margin-bottom: 10px;
+        }
+        footer{
+            border-top: 1px solid #D0D0D0;
+            margin-top: 20px;
+            padding-top: 10px;
+            font-size: 13px;
+            color: #505050;
+        }
+        footer span{
+            color: red;
+        }
+        footer a{
+            color: inherit;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Using Custom Elements -->
-    <my-element></my-element>
+    <div class="content">
+        <header>
+            <h1>
+                &lt;github-repo&gt;
+            </h1>
+        </header>
+
+        <github-repo user="twbs" repo="bootstrap"></github-repo>
+        <github-repo user="joyent" repo="node"></github-repo>
+        <github-repo user="yeoman" repo="yeoman"></github-repo>
+
+        <footer>
+            Made with <span>&hearts;</span> by <a href="http://gaelgillard.com" target="_blank">Gaël Gillard</a>
+        </footer>
+  </div>
 
 </body>
 </html>
