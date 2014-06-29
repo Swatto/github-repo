@@ -2,6 +2,8 @@
 
 *This project was made to test [Polymer](www.polymer-project.org) and web components.*
 
+![Example](src/screenshot.png)
+
 ## Demo
 
 [Check it live!](http://swatto.github.io/github-repo)
