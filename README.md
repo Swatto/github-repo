@@ -1,8 +1,6 @@
-# &lt;github-card&gt;
+# &lt;github-repo&gt;
 
 *This project was made to test [Polymer](www.polymer-project.org) and web components.*
-
-![Example](src/screenshot.png)
 
 ## Demo
 
