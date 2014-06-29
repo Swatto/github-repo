@@ -27,7 +27,7 @@ Or [download as ZIP](https://github.com/swatto/github-repo/archive/master.zip).
 2. Import Custom Element:
 
     ```html
-    <link rel="import" href="bower_components/github-repo/dist/my-element.html">
+    <link rel="import" href="bower_components/github-repo/dist/github-repo.html">
     ```
 
 3. Start using it!
