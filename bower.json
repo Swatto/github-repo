@@ -16,6 +16,6 @@
         "bower_components"
     ],
     "dependencies": {
-        "polymer": "Polymer/polymer#~0.3.2"
+        "polymer": "0.3.3"
     }
 }
