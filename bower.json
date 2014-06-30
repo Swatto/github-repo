@@ -1,21 +1,24 @@
 {
-    "name": "github-repo",
-    "version": "0.1.0",
-    "description": "Github repo cards in a web component",
-    "license": "MIT",
-    "main": "dist/github-repo.html",
-    "keywords": [
-        "polymer",
-        "web-components",
-        "github",
-        "repo"
-    ],
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components"
-    ],
-    "dependencies": {
-        "polymer": "0.3.3"
-    }
+  "name": "github-repo",
+  "version": "0.1.0",
+  "description": "Github repo cards in a web component",
+  "license": "MIT",
+  "main": "dist/github-repo.html",
+  "keywords": [
+    "polymer",
+    "web-components",
+    "github",
+    "repo"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "polymer": "0.3.3"
+  },
+  "devDependencies": {
+    "normalize.css": "~3.0.1"
+  }
 }

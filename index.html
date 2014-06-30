@@ -10,10 +10,11 @@
     <!-- Importing Github-repo -->
     <link rel="import" href="src/github-repo.html">
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+    <link rel="stylesheet" href="bower_components/normalize.css/normalize.css">
 
     <style>
-        body{
+        .background{
+            background: #F7F7F7;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             text-align: center;
             -webkit-font-smoothing: antialiased;
@@ -21,11 +22,14 @@
             display: -webkit-flexbox;
             display: -ms-flexbox;
             display: flex;
-            height: 100vh;
+            min-height: 100vh;
         }
         .content{
-            max-width: 500px;
+            background: white;
+            padding: 20px;
+            width: 400px;
             margin: auto;
+            outline: 10px solid rgba(0,0,0,.1);
         }
         h1{
             text-align: center;
@@ -54,25 +58,48 @@
         footer a{
             color: inherit;
         }
+        pre{
+            font-size: 13px;
+            text-align: left;
+        }
+        @media screen and (max-width: 930px){
+            .background{
+                flex-direction: column;
+            }
+            .content{
+                outline: none;
+            }
+            footer{
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="content">
-        <header>
-            <h1>
-                &lt;github-repo&gt;
-            </h1>
-        </header>
+    <div class="background">
+        <div class="content">
+            <header>
+                <h1>
+                    &lt;github-repo&gt;
+                </h1>
+            </header>
 
-        <github-repo user="twbs" repo="bootstrap"></github-repo>
-        <github-repo user="joyent" repo="node"></github-repo>
-        <github-repo user="yeoman" repo="yeoman"></github-repo>
+            <github-repo user="twbs" repo="bootstrap"></github-repo>
+            <github-repo user="joyent" repo="node"></github-repo>
+            <github-repo user="yeoman" repo="yeoman"></github-repo>
 
-        <footer>
-            Made with <span>&hearts;</span> by <a href="http://gaelgillard.com" target="_blank">Gaël Gillard</a>
-        </footer>
-  </div>
+            <footer>
+                Made with <span>&hearts;</span> by <a href="http://gaelgillard.com" target="_blank">Gaël Gillard</a>
+            </footer>
+        </div>
+        <div class="content">
+            <h2>How to use</h2>
+            <pre><code>&lt;github-repo user=&quot;swatto&quot; repo=&quot;github-repo&quot;&gt;<br>&lt;/github-repo&gt;</code></pre>
+            <p>will generate this:</p>
+            <github-repo user="swatto" repo="github-repo"></github-repo>
+        </div>
+    </div>
 
 </body>
 </html>
