@@ -1,0 +1,190 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+A web component to display:
+    
+  - Number of Stars.
+  - Number of Forks.
+  - Language Used.
+
+About a specific repo in a cool way.
+
+#### Note: The repository that want to obtain information must be marked as public. Read more about the Github API [here](https://developer.github.com/v3/)
+
+Example:
+
+    <github-repo user="Swatto" repo="github-repo"></github-repo>
+
+@group Seed Elements
+@element github-repo
+@demo demo/index.html
+@hero hero.svg
+-->
+
+<dom-module id="github-repo">
+<style>
+  :host{
+    display: block;
+    height: 100px;
+    width: 400px;
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a{
+    text-decoration: none;
+    color: #303030;
+  }
+  #card{
+    text-align: left;
+    display: inline-block;
+    position: relative;
+    width: 400px;
+    height: 100px;
+    border: 1px solid #E0E0E0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    overflow: hidden;
+  }
+  #card.hide{
+    display: none;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+  #card:hover #back{
+    left: 100px;
+  }
+  #back{
+    position: absolute;
+    top: 0;
+    left: 400px;
+    background: #333;
+    color:#F3F3F3;
+    transition: left .4s;
+    -webkit-transition: left .4s;
+    font-size: 12px;
+    text-align: center;
+    width: 300px;
+    height: 100%;
+    margin: 0;
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  #back span{
+    margin: auto;
+  }
+  #profile{
+    max-width: 100px;
+    height: 100px;
+    display: inline-block;
+  }
+  #content{
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 110px;
+    width: 290px;
+    height: 100px;
+  }
+  h1{
+    text-align: left;
+    font-weight: 500;
+    font-size: 14px;
+    margin: 8px 0 5px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #E0E0E0;
+  }
+  p{
+    font-size: 12px;
+    margin: 0;
+  }
+  aside{
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+</style>
+<template>
+  <a id="card" target="_blank" class="hide" href$="{{link}}">
+    <img src="{{avatar}}" id="profile">
+    <div id="content">
+      <h1>{{fullName}}</h1>
+      <p>{{description}}</p>
+    </div>
+    <figure id="back">
+      <span>Star: <span>{{star}}</span></span>
+      <span>Fork: <span>{{fork}}</span></span>
+      <span>Language: <span>{{language}}</span></span>
+    </figure>
+  </a>
+</template>
+<script>
+  Polymer({
+    
+    is: 'github-repo',
+    
+    properties: {
+      /**
+      * `repo` indicates the name of the github repository
+      * that you want to get the data.
+      */
+      repo: { 
+        type: String,
+        notify: true 
+      },
+      /**
+      * `user` indicates the owner of the github
+      * repository that you want to get the data
+      */
+      user: { 
+        type: String,
+        notify: true
+      }
+    },
+    
+    ready: function () {
+      var _this = this;
+      var githubRequest = new XMLHttpRequest();
+      githubRequest.onload = function () {
+        if (this.status != 200)
+          return;
+        _this.data = JSON.parse(this.response);
+        _this.dataReceived();
+      };
+      githubRequest.open('get', 'https://api.github.com/repos/' + this.user + '/' + this.repo);
+      githubRequest.send();
+    },
+    
+    /**
+    * Attempt to parse the data returned by the Github API
+    *
+    * If the data is 'ok' then show the element 
+    * and set the data returned to the element DOM
+    */
+    dataReceived: function () {
+      Polymer.dom(this.$.card).classList.remove('hide');
+      this.avatar = this.data.owner.avatar_url;
+      this.fullName = this.data.full_name;
+      this.description = this.data.description;
+      this.star = this.data.stargazers_count;
+      this.fork = this.data.forks;
+      this.language = this.data.language;
+      this.link = this.data.html_url;
+    },
+    
+    /**
+    * Show the number of stars, forks and language
+    *
+    * when the mouse is over the element otherwise
+    * show info about the repo
+    */
+    toggle: function () {
+      Polymer.dom(this.$.card).classList.toggle('hover');
+    }
+  });
+</script>
+</dom-module>
