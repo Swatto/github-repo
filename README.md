@@ -1,6 +1,17 @@
 # &lt;github-repo&gt;
 
-*This project was made to test [Polymer](www.polymer-project.org) and web components.*
+*A web component to display information about a specific repo*
+
+## Dependencies
+
+Element dependencies are managed via [Bower](http://bower.io/). You can
+install that via:
+
+    npm install -g bower
+
+Then, go ahead and download the element's dependencies:
+
+    bower install
 
 ## Demo
 
@@ -18,19 +29,13 @@ Or [download as ZIP](https://github.com/swatto/github-repo/archive/master.zip).
 
 ## Usage
 
-1. Import Web Components' polyfill:
+1. Import github-repo Element:
 
     ```html
-    <script src="bower_components/platform/platform.js"></script>
+    <link rel="import" href="bower_components/github-repo/github-repo.html">
     ```
 
-2. Import Custom Element:
-
-    ```html
-    <link rel="import" href="bower_components/github-repo/dist/github-repo.html">
-    ```
-
-3. Start using it!
+2. Start using it!
 
     ```html
     <github-repo user="twbs" repo="bootstrap"></github-repo>
@@ -40,35 +45,51 @@ Or [download as ZIP](https://github.com/swatto/github-repo/archive/master.zip).
 
 In order to run it locally you'll need to fetch some dependencies and a basic server setup.
 
-* Install [Bower](http://bower.io/) & [Grunt](http://gruntjs.com/):
+* Install [Bower](http://bower.io/) & [Polyserve](https://github.com/PolymerLabs/polyserve)
 
     ```sh
-    $ [sudo] npm install -g bower grunt-cli
+    $ [sudo] npm install -g bower polyserve
     ```
 
 * Install local dependencies:
 
     ```sh
-    $ bower install && npm install
+    $ bower install
     ```
 
-* To test your project, start the development server and open `http://localhost:8000`.
+* To test your project, start the development server
 
     ```sh
-    $ grunt server
+    $ polyserve
     ```
 
-* To build the distribution files before releasing a new version.
+Once running, you can preview your element at
+`http://localhost:8080/components/github-repo/`, where `github-repo` is the name of the directory containing it.
 
-    ```sh
-    $ grunt build
-    ```
+## Testing
 
-* To provide a live demo, send everything to `gh-pages` branch.
+Simply navigate to the `/test` directory of your element to run its tests. If
+you are using Polyserve: `http://localhost:8080/components/github-repo/test/`
 
-    ```sh
-    $ grunt deploy
-    ```
+### web-component-tester
+
+The tests are compatible with [web-component-tester](https://github.com/Polymer/web-component-tester).
+Install it via:
+
+    npm install -g web-component-tester
+
+Then, you can run your tests on _all_ of your local browsers via:
+
+    wct
+
+#### WCT Tips
+
+`wct -l chrome` will only run tests in chrome.
+
+`wct -p` will keep the browsers alive after test runs (refresh to re-run).
+
+`wct test/some-file.html` will test only the files you specify.
+
 
 ## Contributing
 

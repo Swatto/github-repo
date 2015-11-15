@@ -1,24 +1,30 @@
 {
   "name": "github-repo",
-  "version": "0.1.0",
-  "description": "Github repo cards in a web component",
-  "license": "MIT",
-  "main": "dist/github-repo.html",
+  "version": "0.2.0",
+  "authors": [
+    "Gaël Gillard"
+  ],
+  "description": "A web component to display information about a specific repo",
   "keywords": [
     "polymer",
     "web-components",
     "github",
-    "repo"
+    "repo",
+    "card"
   ],
+  "main": "github-repo.html",
+  "license": "MIT",
+  "homepage": "https://github.com/Swatto/github-repo/",
   "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components"
+    "/.*",
+    "/test/"
   ],
   "dependencies": {
-    "polymer": "0.3.3"
+    "polymer": "Polymer/polymer#^1.1.0"
   },
   "devDependencies": {
-    "normalize.css": "~3.0.1"
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*",
+    "normalize.css": "~3.0.3"
   }
 }
