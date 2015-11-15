@@ -1,0 +1,7 @@
+{
+    "private": true,
+    "devDependencies": {
+        "web-component-tester": "~3.4.0",
+        "polyserve": "~0.5.0"
+    }
+}
