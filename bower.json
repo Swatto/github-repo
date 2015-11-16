@@ -1,6 +1,6 @@
 {
   "name": "github-repo",
-  "version": "0.2.0",
+  "version": "0.1.4",
   "authors": [
     "Gaël Gillard"
   ],
@@ -24,7 +24,6 @@
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
-    "web-component-tester": "*",
-    "normalize.css": "~3.0.3"
+    "web-component-tester": "*"
   }
 }
